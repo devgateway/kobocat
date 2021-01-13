@@ -355,7 +355,7 @@ class ParsedInstance(models.Model):
         # Signal has been removed because of a race condition.
         # Rest Services were called before data was saved in DB.
         success = self.update_mongo(asynchronous)
-        if success and created:
+        if success:
             call_service(self)
         return success
 
